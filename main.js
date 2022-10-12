@@ -10,6 +10,11 @@ const prompt = require('prompt-sync')();
 3. Handle that action accordingly
 Start off by adding a comment for each of these describing what you intend to do. 
 
+
+TASK: Add another option called "clear todo list", 
+that removes all the tasks from the todolist.
+
+
  */
 
 let todo_list = [];
