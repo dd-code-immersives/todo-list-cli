@@ -30,7 +30,11 @@ while(true) {
         todo_list.push(newItem);
 
     }else if (opt === 2) {
-        console.log("User selected 2");
+        //get user input 
+        const index = completeItem();
+        // remove item from the list
+        todo_list.splice(index - 1,1);
+        //how do we complete the item
     }else if (opt === 3) {
         console.log("Exiting Program...");
         break; 
@@ -50,6 +54,13 @@ function addTodoItem(){
     return item;
 }
 
+function completeItem(){
+    console.log("~Completing a to-do item ~");
+    console.log("Which to-do item would you like to complete?");
+    const item = prompt('>');
+    return item;
+}
+
 function displayTodoList(todo){
 
     //when there are zero elements in the list, print
@@ -63,7 +74,9 @@ function displayTodoList(todo){
         
         //print each entry in the todo list to the user
         for (let i = 0; i < todo.length; i++) {
-            console.log(todo[i]);
+
+            // add numbers to items
+            console.log(`${i + 1}. ${todo[i]}`);
         }
         console.log("\n");
     }
