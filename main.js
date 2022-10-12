@@ -32,9 +32,13 @@ while(true) {
     }else if (opt === 2) {
         //get user input 
         const index = completeItem();
-        // remove item from the list
-        todo_list.splice(index - 1,1);
-        //how do we complete the item
+        // make sure user selection exists
+        if (index <  todo_list.length){
+            // remove item from the list
+            todo_list.splice(index - 1,1);
+        } else {
+            console.log(`Selection ${index} does not exist!`);
+        }
     }else if (opt === 3) {
         console.log("Exiting Program...");
         break; 
