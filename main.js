@@ -17,13 +17,18 @@ welcomeMessage(); //welcome user, only runs once
 
 while(true) {
 
-    //get user input (option select returns integer 1-3) runs many times 
+    //display current todo list to user
+    displayTodoList(todo_list);
+
+     //get user input (option select returns integer 1-3) runs many times 
     // unless user puts in 3 , and we break from the loop
     let opt = selectOption();
 
     //handle the options the user selects
     if (opt === 1) {
-        console.log("User selected 1");
+        const newItem = addTodoItem();
+        todo_list.push(newItem);
+
     }else if (opt === 2) {
         console.log("User selected 2");
     }else if (opt === 3) {
@@ -35,10 +40,35 @@ while(true) {
 // define welcome message
 function welcomeMessage() {
     console.log("Welcome to the To-Do List Manager Application!"); 
-    console.log("==============================================");
+    console.log("==============================================\n");
 }
 
+function addTodoItem(){
+    console.log("~ Creating a new to-do item ~");
+    console.log("What is this to-do item called?");
+    const item = prompt('>');
+    return item;
+}
 
+function displayTodoList(todo){
+
+    //when there are zero elements in the list, print
+    //list is empty
+    if (todo.length == 0) {
+        console.log("Your to-do list is empty.\n"); 
+    //if it's not empty, print out todo list items 
+    }else { 
+        //print how many things there are to do in our list
+        console.log(`There is ${todo.length} item(s) in our todo-list\n`);
+        
+        //print each entry in the todo list to the user
+        for (let i = 0; i < todo.length; i++) {
+            console.log(todo[i]);
+        }
+        console.log("\n");
+    }
+
+}
 
 // define selectOption ask user for input
 function selectOption(){
